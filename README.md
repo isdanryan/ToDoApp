@@ -34,6 +34,7 @@ As a user I want to...
 * Save the tasks for each individual user to a database, so the user can keep coming back.
 * Allow the user to view the web app from Desktop, Laptop, Tablet or Mobile.
 * Be easy to use with clear and simple functionality.
+* Only allow viewing of users list once logged in.
 
 ### **How This Will Be Achieved:**
 * Create a dynamically generated list, where tasks can be created and deleted.
@@ -41,6 +42,14 @@ As a user I want to...
 * Use bootstrap to create a responsive layout that can adjust to any platform.
 * The web app will have clear and obvious buttons to carry out the relevant functions.
 * It will also feature a clean and modern layout to help avoid any distractions.
+* Confirmation messages will be shown to help show the user either a succesful or unsuccessful function.
+* The web app will feature a sign up/login requirement to secure each users tasks.
+* The main To Do Task page will only be available once the user has logged in.
+
+### **Colour Scheme**
+The main background for each page will mainly be white with a dark font to make it easy to read. The navigation bar will be a dark colour with a light font to offset from the mainly white background.
+Each of the buttons will be colour coded to help identify their function, e.g. Red = Delete.
+The success messages will be coloured green, and the unsuccessful messages will be coloured red to further help identify their intended message at a glance.
 
 ## **Technologies Used**
 ### **Languages**
@@ -52,4 +61,14 @@ As a user I want to...
 * Flask
 * SQL-Alchemy
 
- 
+## **Page Content & features**
+## **My To Do's**
+* Tasks displayed in a list along side delete button
+* Text area to add new tasks  
+
+## **Sign Up**
+* Name, Email Address, Password enter form to register
+
+## **Login**
+* Email Address and Password entry form to login
+
