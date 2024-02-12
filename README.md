@@ -13,9 +13,14 @@ A simple To Do List, web application to track a dynamically changing list of job
     * [***User Stories***](#user-stories)
     * [***Site Aims***](#site-aims)
     * [***How This Will Be Achieved***](#how-is-this-will-be-achieved)
+    * [***Colour Scheme***](#colour-scheme)
 1. [**Technologies Used**](#technologies-used)
     * [***Languages***](#languages)
     * [***Modules & Imports***](#modules--imports)
+1. [**Page Content & Features**](#page-content--features)
+    * [***My To Do's***](#my-to-dos)
+    * [***Sign Up***](#sign-up)
+    * [***Login***](#login)
 
 
 ## **(UX) User Experience**
