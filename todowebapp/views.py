@@ -30,6 +30,14 @@ def signup():
            # Pass message to flash handler for display on page.
            # Set category to control display style 'error' = red, 'success' = green
            flash('Email address already exists!', category='error')
+        elif len(email) < 6:
+            flash('Email must be greater than 6 characters.', category='error')
+        elif len(firstName) < 2:
+            flash('First name must be greater than 1 character.', category='error')
+        elif password1 != password2:
+            flash('Passwords don\'t match.', category='error')
+        elif len(password1) < 8:
+            flash('Password must be greater than 8 characters.', category='error')
         else:
             new_user = User(email=email, firstName=firstName, password=generate_password_hash(password1, method='pbkdf2:sha256'))
             db.session.add(new_user)
