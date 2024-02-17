@@ -7,7 +7,7 @@
     font-style: normal;
 }
 
-a, a:visited, a:hover {
+#login-form a, #login-form a:visited, #login-form a:hover {
     color: #02a2de !important;
 }
 
@@ -46,4 +46,14 @@ a, a:visited, a:hover {
 
 #login-form p {
     text-align: center;
+}
+
+.nav-bar-custom {
+    background-color: #02a2de;
+    color: white;
+}
+
+.colour-white {
+    text-decoration: none;
+    color: white !important;
 }

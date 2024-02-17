@@ -1,2 +1,22 @@
 {% extends "index.html" %}
 {% block title %}My To Do's{% endblock %}
+{% include "nav.html" %}
+{% block content %}
+<br/>
+<h1 align="center">My To Do's</h1>
+<br/>
+<div class="row">
+    <div class="col"></div>
+    <div class="col-6">
+        <form method="POST">
+            <textarea name="note" id="note" class="form-control"></textarea>
+            <br />
+            <div align="center">
+                <button type="submit" class="btn btn-primary">Add Note</button>
+            </div>
+        </form>
+    </div>
+    <div class="col"></div>
+</div>
+    
+{% endblock %}
