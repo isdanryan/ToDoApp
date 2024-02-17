@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from .models import User
 from . import db
-from flask_login import login_user, logout_user, current_user
+from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 import asyncio
 
@@ -9,8 +9,9 @@ views = Blueprint('views', __name__)
 
 #create basic routes
 @views.route('/')
+@login_required
 def home():
-    return render_template('todos.html')
+    return render_template('todos.html', user=current_user)
 
 # Sign Up page and function
 @views.route('/signup', methods=['GET', 'POST'])
@@ -49,7 +50,6 @@ def login():
         # If user exists check password match
         if user:
             if check_password_hash(user.password, password):
-                flash('Logged in successfully!', category='success')
                 login_user(user, remember=True)
                 return redirect(url_for('views.home'))
             else:
