@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from .models import User
 from . import db
-from flask_login import login_user, current_user
+from flask_login import login_user, logout_user, current_user
 
 views = Blueprint('views', __name__)
 
@@ -31,11 +31,29 @@ def signup():
             db.session.commit()
             print('Account created!')
             # Once signed up log user in
-            login_user(user, remember=True)
+            login_user(new_user, remember=True)
             return redirect(url_for('views.home'))
      return render_template('signup.html')
 
-@views.route('/login')
+@views.route('/login', methods=['GET', 'POST'])
 def login():
-     # check user details and login
-     return render_template('login.html')
+    # Check to see if POST method is used if so store user inputs
+    if request.method == 'POST':
+        email= request.form.get('email')
+        password=request.form.get('password')
+        
+        # Check database for existing user
+        user = User.query.filter_by(email=email).first()
+        # If user exists check password match
+        if user:
+            if user.password == password:
+                print('Logged in successfully!')
+                login_user(user, remember=True)
+                return redirect(url_for('views.home'))
+            else:
+                print('Incorrect password, try again.')
+                print(user.password)
+                print(password)
+        else:
+            print('Email does not exist!')
+    return render_template("login.html")
