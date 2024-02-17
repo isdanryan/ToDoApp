@@ -1,8 +1,9 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from .models import User
 from . import db
 from flask_login import login_user, logout_user, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+import asyncio
 
 views = Blueprint('views', __name__)
 
@@ -25,16 +26,16 @@ def signup():
         # If FALSE create user from above data and write to database
         user = User.query.filter_by(email=email).first()
         if user:
-           print('User already exists!')
+           # Pass message to flash handler for display on page.
+           # Set category to control display style 'error' = red, 'success' = green
+           flash('Email address already exists!', category='error')
         else:
             new_user = User(email=email, firstName=firstName, password=generate_password_hash(password1, method='pbkdf2:sha256'))
             db.session.add(new_user)
             db.session.commit()
-            print('Account created!')
-            # Once signed up log user in
             login_user(new_user, remember=True)
             return redirect(url_for('views.home'))
-     return render_template('signup.html')
+     return render_template("signup.html", user=current_user)
 
 @views.route('/login', methods=['GET', 'POST'])
 def login():
@@ -48,11 +49,11 @@ def login():
         # If user exists check password match
         if user:
             if check_password_hash(user.password, password):
-                print('Logged in successfully!')
+                flash('Logged in successfully!', category='success')
                 login_user(user, remember=True)
                 return redirect(url_for('views.home'))
             else:
-                print('Incorrect password, try again.')
+                flash('Incorrect password, try again.', category='error')
         else:
-            print('Email does not exist!')
+            flash('Email does not exist!', category='error')
     return render_template("login.html")

@@ -12,7 +12,6 @@
         <div class="col box-border">
             <form method="post" class="container-md" id="login-form">
                 <h3 align="center">Login</h3>
-                <br/>
                 <div class="form-group">
                     <label for="email">Email Address</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address"/>
@@ -21,6 +20,7 @@
                     <label for="password">Enter password</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Enter password"/>
                 </div>
+                {% include "alerts.html" %}
                 <button type="submit" class="btn btn-success w-100" id="login-btn">Login</button>
                 <p>First time? <a href="/signup">Sign Up here.</a></p>
             </form>
