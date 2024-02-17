@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from .models import User
 from . import db
 from flask_login import login_user, logout_user, current_user
+from werkzeug.security import generate_password_hash, check_password_hash
 
 views = Blueprint('views', __name__)
 
@@ -26,7 +27,7 @@ def signup():
         if user:
            print('User already exists!')
         else:
-            new_user = User(email=email, firstName=firstName, password=password1)
+            new_user = User(email=email, firstName=firstName, password=generate_password_hash(password1, method='pbkdf2:sha256'))
             db.session.add(new_user)
             db.session.commit()
             print('Account created!')
@@ -46,14 +47,12 @@ def login():
         user = User.query.filter_by(email=email).first()
         # If user exists check password match
         if user:
-            if user.password == password:
+            if check_password_hash(user.password, password):
                 print('Logged in successfully!')
                 login_user(user, remember=True)
                 return redirect(url_for('views.home'))
             else:
                 print('Incorrect password, try again.')
-                print(user.password)
-                print(password)
         else:
             print('Email does not exist!')
     return render_template("login.html")
