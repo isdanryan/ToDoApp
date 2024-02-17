@@ -7,9 +7,9 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
-    fistName = db.Column(db.String(150))
+    firstName = db.Column(db.String(150))
     # Establish 1 to many relationship for notes
-    notes = db.relationship('Notes')
+    notes = db.relationship('Note')
 
 # Notes table model
 class Note(db.Model):
