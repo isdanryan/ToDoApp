@@ -1,16 +1,24 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from .models import User
+from .models import User, Note
 from . import db
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
-import asyncio
 
 views = Blueprint('views', __name__)
 
 #create basic routes
-@views.route('/')
+@views.route('/', methods=['POST', 'GET'])
 @login_required
 def home():
+    if request.method == 'POST':
+        note = request.form.get('note')
+        if len(note) < 1:
+            flash('Note is too short', category='error')
+        else:
+            new_note = Note(data=note, user_id=current_user.id)
+            db.session.add(new_note)
+            db.session.commit()
+            flash('Note added!', category='success')
     return render_template('todos.html', user=current_user)
 
 # Sign Up page and function

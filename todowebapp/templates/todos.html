@@ -1,9 +1,27 @@
 {% extends "index.html" %}
 {% block title %}My To Do's{% endblock %}
 {% include "nav.html" %}
+{% include "alerts.html" %}
 {% block content %}
 <br/>
 <h1 align="center">My To Do's</h1>
+<br/>
+<div class="row">
+    <div class="col"></div>
+    <div class="col-6">
+    <ul class="list-group list-group-flush" id="notes">
+        {% for note in user.notes %}
+        <li class="list-group-item">{{note.data}}
+            <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+                <span aria-hidden="true">&times;</span>
+                
+            </button>
+        </li>
+        {% endfor %}
+    </ul>
+    </div>
+    <div class="col"></div>
+</div>
 <br/>
 <div class="row">
     <div class="col"></div>
@@ -18,5 +36,4 @@
     </div>
     <div class="col"></div>
 </div>
-    
 {% endblock %}
