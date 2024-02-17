@@ -1,13 +1,15 @@
 {% extends "index.html" %}
-{% block title %}Sign Up{% endblock %}
+{% block title %}Login{% endblock %}
 {% block content %}
+<section class="vh-100 custom-gradient">
+<h1 class="display-4 text-center page-header"> To Do, or Not To Do?</h1>
 <!--Use bootstrap grid layout stylize signup form-->
 <div class="container">
     <br/>
     <div class="row">
         <div class="col">
         </div>
-        <div class="col">
+        <div class="col box-border">
             <form method="post" class="container-md" id="login-form">
                 <h3 align="center">Login</h3>
                 <br/>
@@ -19,8 +21,8 @@
                     <label for="password">Enter password</label>
                     <input type="password" class="form-control" id="password1" name="password1" placeholder="Enter password"/>
                 </div>
-                <button type="submit" class="btn btn-success w-100 login-buttons">Login</button>
-                <button type="button" class="btn btn-primary w-100 login-buttons">Sign Up</button>
+                <button type="submit" class="btn btn-success w-100" id="login-btn">Login</button>
+                <p>First time? <a href="/signup">Sign Up here.</a></p>
             </form>
                 
         </div>
@@ -28,4 +30,5 @@
         </div>
     </div>
 </div>
+</section>
 {% endblock %}
