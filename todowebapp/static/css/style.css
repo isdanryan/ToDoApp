@@ -7,6 +7,10 @@
     font-style: normal;
 }
 
+body {
+    background-color: #f7f7f7 !important;
+}
+
 #login-form a, #login-form a:visited, #login-form a:hover {
     color: #02a2de !important;
 }
@@ -53,11 +57,58 @@ form h3 {
 }
 
 .nav-bar-custom {
-    background-color: #02a2de;
+    background-color: #090979;
     color: white;
 }
 
 .colour-white {
     text-decoration: none;
     color: white !important;
+}
+
+.header {
+    width: 100%;
+    height: 200px;
+    background: url(../img/header-bg-darker.jpeg) top -80px center no-repeat;
+    background-size:cover;
+    display: block;
+}
+
+
+#note-block {
+    width: 100%;
+    position: relative;
+    z-index: 100;
+    top: 0px;
+}
+
+#note-form {
+    position: relative;
+    top: 60px
+}
+
+#note-form textarea {
+    resize: none;
+}
+
+#notes-list {
+    position: relative;
+    top: 60px;
+}
+
+.list-item {
+    margin: 5px 0 0 0;
+}
+
+.square-border {
+    border-radius: 0px !important;
+    border: none !important;
+}
+
+.alert {
+    margin-bottom: 0 !important;
+}
+
+.note-delete:hover {
+    color: red !important;
 }
