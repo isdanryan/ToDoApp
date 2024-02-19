@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify, json
 from .models import User, Note
 from . import db
 from flask_login import login_user, logout_user, login_required, current_user
@@ -20,6 +20,19 @@ def home():
             db.session.commit()
             flash('Note added!', category='success')
     return render_template('todos.html', user=current_user)
+
+# JS event calls route, retrives data and removes from database
+@views.route('/delete-note', methods=['POST'])
+def delete_note():
+    note = json.loads(request.data)
+    noteId = note['noteId']
+    note = Note.query.get(noteId)
+    if note:
+        if note.user_id == current_user.id:
+            db.session.delete(note)
+            db.session.commit()
+            flash('Note successfully deleted!', category='success')
+            return jsonify({})
 
 # Sign Up page and function
 @views.route('/signup', methods=['GET', 'POST'])
