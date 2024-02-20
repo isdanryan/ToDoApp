@@ -7,8 +7,10 @@
     font-style: normal;
 }
 
+
 body {
     background-color: #f7f7f7 !important;
+    position: relative;
 }
 
 #login-form a, #login-form a:visited, #login-form a:hover {
@@ -17,12 +19,20 @@ body {
 
 .custom-gradient {
     background: #6a11cb;
+    background-size: 100% 100%;
 
     /* Chrome 10-25, Safari 5.1-6 */
     background: -webkit-linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)
+    background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
 }
 
 .page-header {
@@ -42,6 +52,7 @@ body {
     border-radius: 20px;
     padding: 20px 10px 10px;
     background-color: white;
+    margin-bottom: 30px;
 }
 
 form h3 {
@@ -69,9 +80,11 @@ form h3 {
 .header {
     width: 100%;
     height: 200px;
-    background: url(../img/header-bg-darker.jpeg) top -80px center no-repeat;
-    background-size:cover;
-    display: block;
+    background-image: url(../img/header-bg-darker.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    /* display: block; */
 }
 
 
@@ -84,7 +97,8 @@ form h3 {
 
 #note-form {
     position: relative;
-    top: 60px
+    top: 60px;
+    max-width: 900px
 }
 
 #note-form textarea {
@@ -94,6 +108,10 @@ form h3 {
 #notes-list {
     position: relative;
     top: 60px;
+}
+
+.list {
+    max-width: 900px;
 }
 
 .list-item {
