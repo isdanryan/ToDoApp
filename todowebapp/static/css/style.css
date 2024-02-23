@@ -7,6 +7,9 @@
     font-style: normal;
 }
 
+h1, h3 {
+    text-align: center;
+}
 
 body {
     background-color: #f7f7f7 !important;
@@ -15,24 +18,6 @@ body {
 
 #login-form a, #login-form a:visited, #login-form a:hover {
     color: #02a2de !important;
-}
-
-.custom-gradient {
-    background: #6a11cb;
-    background-size: 100% 100%;
-
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-
-    position: fixed;
-    top:0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: auto;
 }
 
 .bg-image {
@@ -95,7 +80,6 @@ form h3 {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    /* display: block; */
 }
 
 
@@ -103,7 +87,7 @@ form h3 {
     width: 100%;
     position: relative;
     z-index: 100;
-    top: 0px;
+    top: 0;
 }
 
 #note-form {
@@ -130,7 +114,7 @@ form h3 {
 }
 
 .square-border {
-    border-radius: 0px !important;
+    border-radius: 0 !important;
     border: none !important;
 }
 
