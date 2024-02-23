@@ -1,13 +1,12 @@
-<!--Create flash alert style to handle passed messages from flask-flash
-define category to set style, 'error' = red, 'success' = green-->
 {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
+      <div id="flash-messages" role="alert" aria-live="polite">
       {% for category, message in messages %}
       {% if category == 'success' %}
       <!--For success messages-->
         <div class="alert alert-success alter-dismissable fade show" role="alert">
           {{ message }}
-          <button type="button" class="close" data-dismiss="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -15,11 +14,12 @@ define category to set style, 'error' = red, 'success' = green-->
       <!--For error messages-->
         <div class="alert alert-danger alter-dismissable fade show" role="alert">
           {{ message }}
-          <button type="button" class="close" data-dismiss="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
       {% endif %}
       {% endfor %}
+      </div>
       {% endif %}
     {% endwith %}

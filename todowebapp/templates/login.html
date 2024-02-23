@@ -2,33 +2,32 @@
 {% block title %}Login{% endblock %}
 {% block content %}
 <section class="bg-image">
-<h1 class="display-4 text-center page-header"> To Do, or Not To Do?</h1>
-<!--Use bootstrap grid layout stylize signup form-->
-<div class="container">
-    <br/>
-    <div class="row">
-        <div class="col d-none d-lg-block">
-        </div>
-        <div class="col box-border">
-            <form method="post" class="container-md" id="login-form">
-                <h3 align="center">Login</h3>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address"/>
-                </div>
-                <div class="form-group">
-                    <label for="password">Enter password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter password"/>
-                </div>
-                {% include "alerts.html" %}
-                <button type="submit" class="btn btn-success w-100" id="login-btn">Login</button>
-                <p>First time? <a href="/signup">Sign Up here.</a></p>
-            </form>
-                
-        </div>
-        <div class="col d-none d-lg-block">
+    <h1 class="display-4 text-center page-header"> To Do, or Not To Do?</h1>
+    <!-- Use bootstrap grid layout to stylize the signup form -->
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col d-none d-lg-block">
+            </div>
+            <div class="col box-border">
+                <form method="post" class="container-md" id="login-form">
+                    <h3 id="login-heading">Login</h3>
+                    <div class="form-group">
+                        <label for="email" id="email-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" aria-labelledby="email-label">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" id="password-label">Enter password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" aria-labelledby="password-label">
+                    </div>
+                    {% include "alerts.html" %}
+                    <button type="submit" class="btn btn-success w-100" id="login-btn" aria-label="Login">Login</button>
+                    <p>First time? <a href="/signup">Sign Up here.</a></p>
+                </form>
+            </div>
+            <div class="col d-none d-lg-block">
+            </div>
         </div>
     </div>
-</div>
 </section>
 {% endblock %}
