@@ -1,11 +1,10 @@
 # ToDoApp
-A simple To Do List built using Python, Flask, HTML and CSS/Bootstrap.
+A simple To-Do List built using Python, Flask, HTML, and CSS/Bootstrap.
 
 ![Logo](/screenshots/MockupMultiple-ToDo.jpeg)
 
 ## **Site Overview**
-A simple To Do List, web application to track a dynamically changing list of jobs and/or tasks.
-
+A simple To-Do List, a web application to track a dynamically changing list of jobs and/or tasks.
 
 # Table of contents 
 1. [**Site Overview**](#site-overview)
@@ -15,6 +14,7 @@ A simple To Do List, web application to track a dynamically changing list of job
     * [***Site Aims***](#site-aims)
     * [***How This Will Be Achieved***](#how-is-this-will-be-achieved)
     * [***Colour Scheme***](#colour-scheme)
+1. [**Mock Ups**](#mock-ups)
 1. [**Technologies Used**](#technologies-used)
     * [***Languages***](#languages)
     * [***Modules & Imports***](#modules--imports)
@@ -32,29 +32,29 @@ A simple To Do List, web application to track a dynamically changing list of job
 ## **(UX) User Experience**
 ### **Target Audiences:**
 * The target audience is anyone that is looking to organise their work or personal life.
-* Anyone that needs or requires the ability to track a list of objectives, wether it's for a school project, personal project or just for life in general.
+* Anyone who needs or requires the ability to track a list of objectives, whether it's for a school project, personal project, or just for life in general.
 
 ### **User Stories:**
-As a user I want to...
+As a user, I want to...
 * Continually add to the list.
 * Delete things from the list as they are accomplished.
 * Easily refer back to the list to see what still needs to be completed.
 
 ### **Site Aims:**
-* To provide a simple way for users to keep track of task to be completed.
-* Save the tasks for each individual user to a database, so the user can keep coming back.
-* Allow the user to view the web app from Desktop, Laptop, Tablet or Mobile.
+* To provide a simple way for users to keep track of tasks to be completed.
+* Save the tasks for each user to a database, so the user can keep coming back.
+* Allow the user to view the web app from a Desktop, Laptop, Tablet, or Mobile.
 * Be easy to use with clear and simple functionality.
-* Only allow viewing of users list once logged in.
+* Only allow viewing of the users list once logged in.
 
 ### **How This Will Be Achieved:**
 * Create a dynamically generated list, where tasks can be created and deleted.
-* Create a way for a user to login and store any tasks created against the users login profile.
-* Use bootstrap to create a responsive layout that can adjust to any platform.
+* Create a way for a user to log in and store any tasks created against the user's login profile.
+* Use Bootstrap to create a responsive layout that can adjust to any platform.
 * The web app will have clear and obvious buttons to carry out the relevant functions.
 * It will also feature a clean and modern layout to help avoid any distractions.
-* Confirmation messages will be shown to help show the user either a succesful or unsuccessful function.
-* The web app will feature a sign up/login requirement to secure each users tasks.
+* Confirmation messages will be shown to help show the user either a successful or unsuccessful function.
+* The web app will feature a signup/login requirement to secure each user's tasks.
 * The main To Do Task page will only be available once the user has logged in.
 
 ### **Colour Scheme**
@@ -76,11 +76,11 @@ The success messages will be coloured green, and the unsuccessful messages will 
 * Bootstrap
 * Flask
 * SQL-Alchemy
-* See the requiremnets.txt for full list of modules
+* See the requiremnets.txt for a full list of modules
 
 ## **Page Content & features**
 ## **My To Do's**
-* Tasks displayed in a list along side delete button
+* Tasks displayed in a list alongside a delete button
 * Text area to add new tasks  
 
 ## **Sign Up**
@@ -101,12 +101,12 @@ The success messages will be coloured green, and the unsuccessful messages will 
   5. Safari
 
 * I then used the dev tools to simulate different screen sizes/devices from 320 px up to 4000 px in width. 
-* In addition to this, I also asked several people to test using iPhones and Apple Mac laptops/desktops. These users reported no issues or bugs.
+* In addition to this, deployed the site to a cloud server and asked several people to test using iPhones and Apple Mac laptops/desktops. These users reported no issues or bugs.
 
 ### **Testing User Stories**
 ## Continually add to the list.
 
-    - I can continuosly add To Do's to the list, with the list updating instantly each time.
+    - I can continuously add To-Do's to the list, with the list updating instantly each time.
 
 ## Delete things from the list as they are accomplished.
 
@@ -114,19 +114,25 @@ The success messages will be coloured green, and the unsuccessful messages will 
 
 ## Easily refer back to the list to see what still needs to be completed.
 
-    - I can easily log on to website to view my list. The site remembers my session and automatically logs me in, unless i've logged out.
+    - I can easily log on to the website to view my list. The site remembers my session and automatically logs me in unless I've logged out.
 
 ### **Post Development Testing**
-* During post development, the site was checked using a HTML, CSS and JS validator along with the use of a Python PEP8 checker to make sure everything follows the current standards for each of the code bases.
-* Any errors or violations found were fixed.
+* During post-development, the site was checked using an HTML, CSS, and JS validator along with the use of a Python PEP8 checker to make sure everything follows the current standards for each of the code bases.
+* Several violations were found on the PEP8 checker, these were simple fixes such as reducing the character length on a single line to below 79. Along with a few white space fixes.
+* The HTML checker found several errors, however, these were pieces of Python code embedded within the HTML.
+* Carrying out a lighthouse test passed everything apart from the best practices, however, this was from the test server not having an SSL certificate. In a real-world scenario, the server would be running one.
+* The background images used were converted into the newer Webp format to help improve scores.
+
+![image](/screenshots/lighthouse.png)
 
 ### **Deployment**
-* The final website was deployed to a linux server running nginx to handle server up the websites html pages and gunicorn to handle the python code.
-* The site can be ran in a vertual enviroment on a local machine. To deploy 
+* The final website was deployed to a Linux server running nginx to server up the website's HTML pages and gunicorn to handle the Python code.
+* The .env and database.db files have been chmod to 600 for further security
+* This can be reached by the following address http://todo.danryan.uk
 
 ### **Future Enhancements**
-* I would like add the ability for a user to reset their password. this could be achieved by implementing a reset page, tied with a link that would be emailed to the user's email address they entered upon sigining up.
-* Add the ability to set due by dates
+* I would like to add the ability for a user to reset their password. this could be achieved by implementing a reset page, tied with a link that would be emailed to the user's email address they entered upon signing up.
+* Add the ability to set due-by dates
 * Add the ability to add a priority and sort by priority.
 
 ### **Credits**
@@ -135,7 +141,8 @@ The success messages will be coloured green, and the unsuccessful messages will 
 * Header Image/Background Image - [Pexels](https://www.pexels.com)
 * Header Image/Background Image adjustments done in Adobe Photoshop - [Adobe](https://www.adobe.com)
 * CSS Validator - [CSS Portal](https://www.cssportal.com/css-validator/)
-* HTML Validator - []
+* HTML Validator - [W3C](https://validator.w3.org/)
 * JS Validator - [JSHint](https://jshint.com/)
-
+* Python PEP8 Checker - [Python Checker](https://www.pythonchecker.com/)
+* Grammarly for spelling and punctuation checking - [Grammarly](https://www.grammarly.com)
 
