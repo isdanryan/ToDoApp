@@ -1,6 +1,7 @@
 # ToDoApp
-A simple To Do List using Python and Flask.
+A simple To Do List built using Python, Flask, HTML and CSS/Bootstrap.
 
+![Logo](/screenshots/MockupMultiple-ToDo.jpeg)
 
 ## **Site Overview**
 A simple To Do List, web application to track a dynamically changing list of jobs and/or tasks.
@@ -60,6 +61,22 @@ As a user I want to...
 The main background for each page will mainly be white with a header to add some variety.
 Each of the buttons will be coloured to help identify their function, e.g. Red = Delete.
 The success messages will be coloured green, and the unsuccessful messages will be coloured red to further help identify their intended message at a glance.
+
+## **Mock-ups**
+
+Desktop
+![Image](/screenshots/Desktop-login.jpg)
+
+![Image](/screenshots/Desktop.jpg)
+
+Tablet
+![Image](/screenshots/Tablet.jpg)
+
+Phone
+![Image](/screenshots/Phone-login.jpg)
+
+![Image](/screenshots/Phone.jpg)
+
 
 ## **Technologies Used**
 ### **Languages**
@@ -130,5 +147,8 @@ The success messages will be coloured green, and the unsuccessful messages will 
 * Fonts are from Google Fonts - [Google Fonts](https://fonts.google.com)
 * Header Image/Background Image - [Pexels](https://www.pexels.com)
 * Header Image/Background Image adjustments done in Adobe Photoshop - [Adobe](https://www.adobe.com)
+* CSS Validator - [CSS Portal](https://www.cssportal.com/css-validator/)
+* HTML Validator - []
+* JS Validator - [JSHint](https://jshint.com/)
 
 
