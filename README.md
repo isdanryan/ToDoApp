@@ -63,20 +63,7 @@ Each of the buttons will be coloured to help identify their function, e.g. Red =
 The success messages will be coloured green, and the unsuccessful messages will be coloured red to further help identify their intended message at a glance.
 
 ## **Mock-ups**
-
-Desktop
-![Image](/screenshots/Desktop-login.jpg)
-
-![Image](/screenshots/Desktop.jpg)
-
-Tablet
-![Image](/screenshots/Tablet.jpg)
-
-Phone
-![Image](/screenshots/Phone-login.jpg)
-
-![Image](/screenshots/Phone.jpg)
-
+![Image](/screenshots/ToDoAppDesktop.jpg)
 
 ## **Technologies Used**
 ### **Languages**
