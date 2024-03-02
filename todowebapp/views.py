@@ -6,6 +6,7 @@ from .models import User, Note
 from . import db
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+import re
 
 views = Blueprint('views', __name__)
 
@@ -49,7 +50,10 @@ def signup():
         password2 = request.form.get('password2')
 
         user = User.query.filter_by(email=email).first()
+
+        regex = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
         # Check if the email address already exists in the database
+        # And check for password formatting
         if user:
             flash('Email address already exists!', category='error')
         elif len(email) < 6:
@@ -60,6 +64,10 @@ def signup():
             flash('Passwords don\'t match.', category='error')
         elif len(password1) < 8:
             flash('Password must be greater than 8 characters.', category='error')
+        elif (regex.search(password1) == None):
+            flash('Password must contain at leaset 1 special character.', category='error')
+        elif not any(char.isdigit() for char in password1):
+            flash('Password must contain at least 1 number.', category='error')
         else:
             new_user = User(
                 email=email,
