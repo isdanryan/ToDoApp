@@ -128,7 +128,10 @@ The success messages will be coloured green, and the unsuccessful messages will 
 ### **Deployment**
 * The final website was deployed to a Linux server running nginx to server up the website's HTML pages and gunicorn to handle the Python code.
 * The .env and database.db files have been chmod to 600 for further security
-* This can be reached by the following address http://todo.danryan.uk
+* This can be reached by the following address http://todo.danryan.uk/login
+* A test user can be used to access the website, with the following credentials
+    Username: test@test.com
+    Password: Letmein1!
 
 ### **Future Enhancements**
 * I would like to add the ability for a user to reset their password. this could be achieved by implementing a reset page, tied with a link that would be emailed to the user's email address they entered upon signing up.
