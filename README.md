@@ -79,19 +79,19 @@ The success messages will be coloured green, and the unsuccessful messages will 
 * See the requiremnets.txt for a full list of modules
 
 ## **Page Content & features**
-## **My To Do's**
+### **My To Do's**
 * Tasks displayed in a list alongside a delete button
 * Text area to add new tasks  
 
-## **Sign Up**
+### **Sign Up**
 * Name, Email Address, Password enter form to register
 * Link to switch to login page
 
-## **Login**
+### **Login**
 * Email Address and Password entry form to login
 * Link to switch to sign up page
 
-### **Manual Testing:**
+## **Manual Testing:**
 * During testing, I used five different browsers to ensure cross-compatibility. The desktop browsers used myself were:
 
   1. Chrome
@@ -103,20 +103,20 @@ The success messages will be coloured green, and the unsuccessful messages will 
 * I then used the dev tools to simulate different screen sizes/devices from 320 px up to 4000 px in width. 
 * In addition to this, deployed the site to a cloud server and asked several people to test using iPhones and Apple Mac laptops/desktops. These users reported no issues or bugs.
 
-### **Testing User Stories**
-## Continually add to the list.
+## **Testing User Stories**
+### Continually add to the list.
 
     - I can continuously add To-Do's to the list, with the list updating instantly each time.
 
-## Delete things from the list as they are accomplished.
+### Delete things from the list as they are accomplished.
 
     - I can easily delete any To Do from the list by using the trash can button. The list updates instantly
 
-## Easily refer back to the list to see what still needs to be completed.
+### Easily refer back to the list to see what still needs to be completed.
 
     - I can easily log on to the website to view my list. The site remembers my session and automatically logs me in unless I've logged out.
 
-### **Post Development Testing**
+## **Post Development Testing**
 * During post-development, the site was checked using an HTML, CSS, and JS validator along with the use of a Python PEP8 checker to make sure everything follows the current standards for each of the code bases.
 * Several violations were found on the PEP8 checker, these were simple fixes such as reducing the character length on a single line to below 79. Along with a few white space fixes.
 * The HTML checker found several errors, however, these were pieces of Python code embedded within the HTML.
@@ -125,20 +125,20 @@ The success messages will be coloured green, and the unsuccessful messages will 
 
 ![image](/screenshots/lighthouse.png)
 
-### **Deployment**
+## **Deployment**
 * The final website was deployed to a Linux server running nginx to server up the website's HTML pages and gunicorn to handle the Python code.
 * The .env and database.db files have been chmod to 600 for further security
 * This can be reached by the following address http://todo.danryan.uk/login
-* A test user can be used to access the website, with the following credentials
+* A test user can be used to access the website, with the following credentials:
     Username: test@test.com
     Password: Letmein1!
 
-### **Future Enhancements**
+## **Future Enhancements**
 * I would like to add the ability for a user to reset their password. this could be achieved by implementing a reset page, tied with a link that would be emailed to the user's email address they entered upon signing up.
 * Add the ability to set due-by dates
 * Add the ability to add a priority and sort by priority.
 
-### **Credits**
+## **Credits**
 * Style and layout using Bootstrap - [Bootstrap](https://www.bootstrap.com)
 * Fonts are from Google Fonts - [Google Fonts](https://fonts.google.com)
 * Header Image/Background Image - [Pexels](https://www.pexels.com)
