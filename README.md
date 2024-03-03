@@ -26,6 +26,7 @@ A simple To-Do List, a web application to track a dynamically changing list of j
 1. [**Testing User-Stories**](#testing-user-stories)
 1. [**Post Development Testing**](#post-development-testing)
 1. [**Deployment**](#deployment)
+    *[***Local Deployment***](#local-deployment)
 1. [**Future Enhancement**](#future-enhancements)
 1. [**Credits**](#future-enhancements)
 
@@ -130,8 +131,12 @@ The success messages will be coloured green, and the unsuccessful messages will 
 * The .env and database.db files have been chmod to 600 for further security
 * This can be reached by the following address http://todo.danryan.uk/login
 * A test user can be used to access the website, with the following credentials:
-    Username: test@test.com
-    Password: Letmein1!
+    * Username: test@test.com
+    * Password: Letmein1!
+
+### **Local Deployment**
+* The website can be deployed locally, once a virtual enviroment has been setup, Pip install the requirements.txt file in the main directory.
+* Then run main.py to start the local server and run the web app.
 
 ## **Future Enhancements**
 * I would like to add the ability for a user to reset their password. this could be achieved by implementing a reset page, tied with a link that would be emailed to the user's email address they entered upon signing up.
