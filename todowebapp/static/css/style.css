@@ -134,3 +134,34 @@ form h3 {
 .note-uncomplete:hover {
     color: #0274de !important;
 }
+
+.tool-tip:hover::before {
+    content: " ";
+    z-index: 10;
+    position: absolute;
+    float: left;
+    top: -10px;
+    width: fit-content;
+    height: fit-content;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: solid 1px #0f0f0f;
+    border-radius: 2px;
+    background-color: bisque;
+    padding: 4px;
+}
+
+.tool-tip-complete:hover::before {
+    content: "Mark as complete";
+    right: 80px;
+}
+
+.tool-tip-uncomplete:hover::before {
+    content: "Mark as uncomplete";
+    right: 80px;
+}
+
+.tool-tip-delete:hover::before {
+    content: "Delete";
+    right: 40px;
+}

@@ -27,15 +27,15 @@
         <ul class="list-group list-group-flush d-flex flex-column" id="notes">
             {% for note in user.notes %}
             <li class="list-group-item list-item">{% if note.done %}<strike>{% endif %}{{note.data}}{% if note.done %}</strike>{% endif %}
-                <button type="button" class="close list-item-btn" onClick="deleteNote({{ note.id }})" aria-label="Delete Note">
+                <button type="button" class="close list-item-btn tool-tip tool-tip-delete" onClick="deleteNote({{ note.id }})" aria-label="Delete Note">
                     <i class="fa fa-trash note-delete" aria-hidden="true"></i>
                 </button>
                 {% if not note.done %}
-                <a href="/edit-note/{{note.id}}"><button type="button" class="close list-item-btn mx-3" aria-label="Complete Note">
+                <a href="/edit-note/{{note.id}}"><button type="button" class="close list-item-btn mx-3 tool-tip tool-tip-complete" aria-label="Complete Note">
                     <i class="fa fa-check note-complete" aria-hidden="true"></i>
                 </button></a>
                 {% else %}
-                <a href="/edit-note/{{note.id}}"><button type="button" class="close list-item-btn mx-3" aria-label="Complete Note">
+                <a href="/edit-note/{{note.id}}"><button type="button" class="close list-item-btn mx-3 tool-tip tool-tip-uncomplete" aria-label="Complete Note">
                     <i class="fa fa-close note-uncomplete mx-1" aria-hidden="true"></i>
                 </button></a>
                 {% endif %}
