@@ -13,12 +13,12 @@ class User(db.Model, UserMixin):
     # Establish 1 to many relationship for notes
     notes = db.relationship('Note')  # Relationship with Note table
 
+
 # Notes table model
 class Note(db.Model):
     # Define note table columns
     id = db.Column(db.Integer, primary_key=True)  # Note ID column
     data = db.Column(db.String(10000))  # Note data column
-    date = db.Column(db.DateTime(timezone=True), default=func.now())  # Date column
-
+    done = db.Column(db.Boolean)  # Whether item is done
     # Establish 1 to many relationship for notes
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))  # Foreign key to User table
