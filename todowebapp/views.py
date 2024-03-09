@@ -20,7 +20,7 @@ def home():
             flash('Note is too short', category='error')
         else:
             # Add a new note to the database for the current user
-            new_note = Note(data=note, user_id=current_user.id)
+            new_note = Note(data=note, done=False, user_id=current_user.id)
             db.session.add(new_note)
             db.session.commit()
             flash('Note added!', category='success')
@@ -39,6 +39,17 @@ def delete_note():
             db.session.commit()
             flash('Note successfully deleted!', category='success')
             return jsonify({})
+
+
+@views.route('/edit-note/<int:id>')
+def edit_note(id):
+    note_id = id
+    note = Note.query.get(note_id)
+    if note:
+        if note.user_id == current_user.id:
+            note.done = not note.done  # Toggle done on or off
+            db.session.commit()
+            return redirect(url_for('views.home'))
 
 # Function to handle user sign up requests
 @views.route('/signup', methods=['GET', 'POST'])
@@ -84,12 +95,10 @@ def signup():
 def login():
     if request.method == 'POST':
         email = request.form.get('email')
-        password = request.form.get('password')
-        
+        password = request.form.get('password')      
         user = User.query.filter_by(email=email).first()
-        
         if user:
-            # Check if the password matches the hashed password stored in the database
+            # Check if the password matches the hashed password stored
             if check_password_hash(user.password, password):
                 login_user(user, remember=True)
                 # Redirect the user to the home page after successful login
@@ -99,6 +108,7 @@ def login():
         else:
             flash('Email does not exist!', category='error')
     return render_template("login.html")
+
 
 @views.route('/logout')
 @login_required
