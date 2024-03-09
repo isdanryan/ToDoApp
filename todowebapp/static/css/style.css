@@ -165,3 +165,7 @@ form h3 {
     content: "Delete";
     right: 40px;
 }
+
+.text-dark {
+    color: #0f0f0f;
+}

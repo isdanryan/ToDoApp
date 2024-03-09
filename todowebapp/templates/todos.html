@@ -4,7 +4,7 @@
 {% block content %}
 <div class="header">
     <br/>
-    <h1 class="colour-white">My To Do's</h1>
+    <h1 class="colour-white">{{user.firstName}}s' To Do's</h1>
     <div class="d-flex flex-row justify-content-center">
         <a href="/logout"><button class="btn btn-outline-secondary btn-danger colour-white" type="button" aria-label="Logout">Logout</button></a>
     </div>
@@ -25,23 +25,28 @@
     <div class="col flex-shrink-1 d-none d-lg-block"></div>
     <div class="col flex-grow-1 list">
         <ul class="list-group list-group-flush d-flex flex-column" id="notes">
-            {% for note in user.notes %}
-            <li class="list-group-item list-item">{% if note.done %}<strike>{% endif %}{{note.data}}{% if note.done %}</strike>{% endif %}
-                <button type="button" class="close list-item-btn tool-tip tool-tip-delete" onClick="deleteNote({{ note.id }})" aria-label="Delete Note">
-                    <i class="fa fa-trash note-delete" aria-hidden="true"></i>
-                </button>
-                {% if not note.done %}
-                <a href="/edit-note/{{note.id}}"><button type="button" class="close list-item-btn mx-3 tool-tip tool-tip-complete" aria-label="Complete Note">
-                    <i class="fa fa-check note-complete" aria-hidden="true"></i>
-                </button></a>
-                {% else %}
-                <a href="/edit-note/{{note.id}}"><button type="button" class="close list-item-btn mx-3 tool-tip tool-tip-uncomplete" aria-label="Complete Note">
-                    <i class="fa fa-close note-uncomplete mx-1" aria-hidden="true"></i>
-                </button></a>
-                {% endif %}
+            {% if not user.notes %}
+                <h2 class="text-dark mt-3">You have nothing to do!</h2>
+                <p class="text-dark mt-3 text-center">Create a new note or to do item above.</p>
+            {% else %}
+                {% for note in user.notes %}
+                <li class="list-group-item list-item">{% if note.done %}<strike>{% endif %}{{note.data}}{% if note.done %}</strike>{% endif %}
+                    <button type="button" class="close list-item-btn tool-tip tool-tip-delete" onClick="deleteNote({{ note.id }})" aria-label="Delete Note">
+                        <i class="fa fa-trash note-delete" aria-hidden="true"></i>
+                    </button>
+                    {% if not note.done %}
+                    <a href="/edit-note/{{note.id}}"><button type="button" class="close list-item-btn mx-3 tool-tip tool-tip-complete" aria-label="Complete Note">
+                        <i class="fa fa-check note-complete" aria-hidden="true"></i>
+                    </button></a>
+                    {% else %}
+                    <a href="/edit-note/{{note.id}}"><button type="button" class="close list-item-btn mx-3 tool-tip tool-tip-uncomplete" aria-label="Complete Note">
+                        <i class="fa fa-close note-uncomplete mx-1" aria-hidden="true"></i>
+                    </button></a>
+                    {% endif %}
 
-            </li>
-            {% endfor %}
+                </li>
+                {% endfor %}
+            {% endif %}
         </ul>
     </div>
     <div class="col flex-shrink-1 d-none d-lg-block"></div>
