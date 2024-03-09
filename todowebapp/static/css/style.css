@@ -126,3 +126,11 @@ form h3 {
 .note-delete:hover {
     color: red !important;
 }
+
+.note-complete:hover {
+    color: rgb(8, 204, 8) !important;
+}
+
+.note-uncomplete:hover {
+    color: #0274de !important;
+}
