@@ -1,3 +1,5 @@
 .venv/
 .env
 .db
+tests/__pycache__/
+todowebapp/__pycache__/
