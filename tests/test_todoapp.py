@@ -13,6 +13,7 @@ test_user = User(
                                             method='pbkdf2:sha256'))
 test_note = "Test note"
 
+
 @pytest.fixture(scope='session')
 def app():
     app = create_app('sqlite:///:memory:')
@@ -32,6 +33,7 @@ def clean_up(app):
     db.engine.dispose()
 
     print("Database deleted successfully!")
+
 
 @pytest.fixture(scope='function')
 def client(app):

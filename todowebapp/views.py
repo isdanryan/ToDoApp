@@ -10,6 +10,7 @@ import re
 
 views = Blueprint('views', __name__)
 
+
 # Route for the home page where users can view and add notes
 @views.route('/', methods=['POST', 'GET'])
 @login_required
@@ -26,6 +27,7 @@ def home():
             flash('Note added!', category='success')
     # Render the todos.html template with the current user's information
     return render_template('todos.html', user=current_user)
+
 
 # Endpoint to handle requests to delete a note using json from js script
 @views.route('/delete-note', methods=['POST'])
@@ -51,6 +53,7 @@ def edit_note(id):
             db.session.commit()
             return redirect(url_for('views.home'))
 
+
 # Function to handle user sign up requests
 @views.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -63,27 +66,34 @@ def signup():
         user = User.query.filter_by(email=email).first()
 
         regex = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
+
         # Check if the email address already exists in the database
         # And check for password formatting
         if user:
-            flash('Email address already exists!', category='error')
+            flash('Email address already exists!',
+                  category='error')
         elif len(email) < 6:
-            flash('Email must be greater than 6 characters.', category='error')
+            flash('Email must be greater than 6 characters.',
+                  category='error')
         elif len(first_name) < 2:
-            flash('First name must be greater than 1 character.', category='error')
+            flash('First name must be greater than 1 character.',
+                  category='error')
         elif password1 != password2:
             flash('Passwords don\'t match.', category='error')
         elif len(password1) < 8:
-            flash('Password must be greater than 8 characters.', category='error')
-        elif (regex.search(password1) == None):
-            flash('Password must contain at leaset 1 special character.', category='error')
+            flash('Password must be greater than 8 characters.',
+                  category='error')
+        elif (regex.search(password1) is None):
+            flash('Password must contain at leaset 1 special character.',
+                  category='error')
         elif not any(char.isdigit() for char in password1):
             flash('Password must contain at least 1 number.', category='error')
         else:
             new_user = User(
                 email=email,
                 firstName=first_name,
-                password=generate_password_hash(password1, method='pbkdf2:sha256')
+                password=generate_password_hash(password1,
+                                                method='pbkdf2:sha256')
             )
             db.session.add(new_user)
             db.session.commit()
@@ -91,11 +101,12 @@ def signup():
             return redirect(url_for('views.home'))
     return render_template("signup.html", user=current_user)
 
+
 @views.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         email = request.form.get('email')
-        password = request.form.get('password')      
+        password = request.form.get('password')
         user = User.query.filter_by(email=email).first()
         if user:
             # Check if the password matches the hashed password stored
