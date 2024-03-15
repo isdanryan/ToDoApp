@@ -15,10 +15,14 @@ DB_NAME = os.getenv("DATABASE_NAME")
 DB_PATH = path.abspath(os.getenv("DATABASE_PATH"))
 directory = path.dirname(DB_PATH)  # Get the directory name of the database file
 
-def create_app():
+
+def create_app(db_uri=None):
     app = Flask(__name__)  # Create Flask application instance
     app.config['SECRET_KEY'] = SECRET_KEY  # Set the secret key for the Flask app
-    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{path.abspath(DB_PATH)}'  # Set the database URI
+    if db_uri:
+        app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
+    else:
+        app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{path.abspath(DB_PATH)}'  # Set the database URI
     db.init_app(app)  # Initialize the database with the Flask app
 
     # Import routes

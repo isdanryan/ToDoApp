@@ -1,0 +1,23 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.1, pytest-8.1.1, pluggy-1.4.0
+rootdir: D:\OneDrive - Evolution Network Services Ltd\Documents\GitHub\ToDoApp
+collected 11 items
+
+tests\test_todoapp.py ...........                                        [100%]
+
+=================================== PASSES ====================================
+-------------------------- Captured stdout teardown ---------------------------
+Database deleted successfully!
+=========================== short test summary info ===========================
+PASSED tests/test_todoapp.py::test_home_view_unauthenticated
+PASSED tests/test_todoapp.py::test_signup_passwords_not_match
+PASSED tests/test_todoapp.py::test_signup_email_less_than_6
+PASSED tests/test_todoapp.py::test_signup_name_less_than_2
+PASSED tests/test_todoapp.py::test_signup_password_no_number
+PASSED tests/test_todoapp.py::test_signup_password_no_special_character
+PASSED tests/test_todoapp.py::test_signup_password_less_than_8
+PASSED tests/test_todoapp.py::test_signup_new_user
+PASSED tests/test_todoapp.py::test_home_view_authenticated
+PASSED tests/test_todoapp.py::test_add_note_authenticated
+PASSED tests/test_todoapp.py::test_toggle_note_complete
+============================= 11 passed in 2.38s ==============================
