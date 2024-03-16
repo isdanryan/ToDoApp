@@ -22,9 +22,11 @@ A simple To-Do List, a web application to track a dynamically changing list of j
     * [***My To Do's***](#my-to-dos)
     * [***Sign Up***](#sign-up)
     * [***Login***](#login)
+1. [**Models & Schema**](#models--schema)
 1. [**Manual Testing**](#manual-testing)
 1. [**Testing User-Stories**](#testing-user-stories)
 1. [**Post Development Testing**](#post-development-testing)
+    * [***Testing with PyTest***](#testing-with-pytest)
 1. [**Deployment**](#deployment)
     *[***Local Deployment***](#local-deployment)
 1. [**Future Enhancement**](#future-enhancements)
@@ -92,6 +94,27 @@ The success messages will be coloured green, and the unsuccessful messages will 
 * Email Address and Password entry form to login
 * Link to switch to sign up page
 
+## **Models & Schema**
+* Below is a breakdown of the database models used in this application.
+
+### **User**
+
+| Column | Type | Unique | Primary Key | Foriegn Key |
+| - | - | - | - | - |
+| id  | Integer  | True | True |  |
+| email  | String  | True |  |  |
+| firstName | String | False |  |  |
+| password | String | False |  |  |
+
+### **Note**
+
+| Column | Type | Unique | Primary Key | Foriegn Key |
+| - | - | - | - | - |
+| id  | Integer  | True | True |  |
+| data | String  | False |  |  |
+| done | Boolean | False |  |  |
+| user_id | Integer | False |  | user.id |
+
 ## **Manual Testing:**
 * During testing, I used five different browsers to ensure cross-compatibility. The desktop browsers used myself were:
 
@@ -125,6 +148,17 @@ The success messages will be coloured green, and the unsuccessful messages will 
 * The background images used were converted into the newer Webp format to help improve scores.
 
 ![image](/screenshots/lighthouse.png)
+
+### **Testing with PyTest**
+* Several tests were built using PyTest in order to test the full functionality of the web application. And can be ran using the 'pytest' command.
+* These tests include emulations of:
+    1. Signing up as a new user; including replicating various types of errors at sign up.
+    2. Attempting to access the application without signing up.
+    3. Logging in.
+    4. Adding a note.
+    5. Toggling a note as completed.
+
+* The results and output of each test can be found in the [test_results.txt](/tests/test_results.txt)
 
 ## **Deployment**
 * The final website was deployed to a Linux server running nginx to server up the website's HTML pages and gunicorn to handle the Python code.
