@@ -2,6 +2,7 @@ from . import db  # Import the database instance
 from flask_login import UserMixin  # Import UserMixin for user management
 from sqlalchemy.sql import func  # Import func for database functions
 
+
 # User table model
 class User(db.Model, UserMixin):
     # Define user table columns
